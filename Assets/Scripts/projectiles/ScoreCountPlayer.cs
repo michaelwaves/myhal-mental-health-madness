@@ -19,9 +19,10 @@ public class ScoreCountPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("drug"))
         {
             ScoreScript.scoreValue -= 5;
+            audios.time = 0.5f;
             audios.Play();
-            audios.time = 0.3f;
             
+
         }
     }
 

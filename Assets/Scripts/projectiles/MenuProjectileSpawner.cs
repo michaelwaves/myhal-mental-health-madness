@@ -7,7 +7,7 @@ public class MenuProjectileSpawner : MonoBehaviour
     [SerializeField] private GameObject[] drugs;
     [SerializeField] private float waitSeconds;
 
-    void Start()
+    void Awake()
     {
         StartCoroutine(MenuSpawn());
 
