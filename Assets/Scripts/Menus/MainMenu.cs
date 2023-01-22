@@ -6,7 +6,16 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    private AudioSource audios;
+    private void Awake()
+    {
+        audios = GetComponent<AudioSource>();
+    }
+    public void ButtonNoise()
+    {
+        audios.Play();
+        audios.time = 0.5f;
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene("MainLevel");

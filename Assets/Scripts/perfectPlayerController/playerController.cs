@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="playerController",menuName ="InputController/playerController")]
 public class playerController : InputController
 {
-    public override bool RetrieveJumpInput()
+   //for PC
+    /*public override bool RetrieveJumpInput()
     {
         return Input.GetKeyDown("w");
     }
@@ -13,6 +14,17 @@ public class playerController : InputController
     public override float RetrieveMoveInput()
     {
         return Input.GetAxisRaw("Horizontal");
+    }*/
+
+    //for mobile
+    public override bool RetrieveJumpInput()
+    {
+        return Input.touches[0].phase == TouchPhase.Began;
+    }
+
+    public override float RetrieveMoveInput()
+    {
+        return Input.acceleration.x >0 ? 1: -1;
     }
 
     public override float RetrieveVerticalInput()
@@ -20,3 +32,4 @@ public class playerController : InputController
         return Input.GetAxisRaw("Vertical");
     }
 }
+
